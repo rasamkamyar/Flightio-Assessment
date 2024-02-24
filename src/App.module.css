@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+}
+.container {
+  position: relative;
+  background-image: url("Start.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+}

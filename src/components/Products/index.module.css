@@ -1,0 +1,16 @@
+.imageProfile {
+  border-radius: 50%;
+  background-image: url("266.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 70px;
+}
+
+.header {
+  width: 90%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
