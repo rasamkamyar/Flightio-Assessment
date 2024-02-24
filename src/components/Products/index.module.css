@@ -9,8 +9,39 @@
 
 .header {
   width: 90%;
-  margin: 20px auto;
+  margin: 15px auto 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+}
+
+.serach {
+  display: flex;
+  max-width: 90%;
+  margin: auto;
+  gap: 10px;
+}
+
+.filterBox {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 15px auto;
+  padding: 10px;
+}
+
+.filterBtns {
+  padding: 10px;
+  width: 25%;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 1px solid grey;
 }
