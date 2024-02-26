@@ -6,7 +6,6 @@ function Products() {
   const serachRef = useRef(null);
   const { products, setProducts, temp, cats } = useContext(ProductContext);
 
-  console.log(products);
   function handleChange() {
     const value = serachRef.current.value;
     const searchedProduct = temp.filter((item) => {
@@ -37,10 +36,7 @@ function Products() {
           onChange={handleChange}
         />
         <button style={{ backgroundColor: "purple", border: "none" }}>
-          <i
-            className="fa fa-search"
-            style={{ fontSize: "30px", padding: "5px", color: "white" }}
-          ></i>
+          <i className={`fa fa-search  ${Style.searchIcon}`}></i>
         </button>
       </div>
       <div className={Style.filterBox}>
@@ -56,15 +52,7 @@ function Products() {
       {products.map((product) => {
         return (
           <div key={product.id} className={Style.productsContainer}>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "30%",
-                paddingLeft: "8px",
-              }}
-            >
+            <div className={Style.imgContainer}>
               <img
                 src={product.image}
                 alt={product.title}
@@ -85,22 +73,10 @@ function Products() {
         );
       })}
       <footer className={Style.footer}>
-        <i
-          className="fa fa-home"
-          style={{ fontSize: "24px", fontWeight: "1000" }}
-        ></i>
-        <i
-          className="fa fa-shopping-cart"
-          style={{ fontSize: "24px", color: "grey" }}
-        ></i>
-        <i
-          className="fa fa-archive"
-          style={{ fontSize: "24px", color: "grey" }}
-        ></i>
-        <i
-          className="fa fa-heart"
-          style={{ fontSize: "24px", color: "grey" }}
-        ></i>
+        <i className={`fa fa-home ${Style.footerIcons}`}></i>
+        <i className={`fa fa-shopping-cart ${Style.footerIcons}`}></i>
+        <i className={`fa fa-archive ${Style.footerIcons}`}></i>
+        <i className={`fa fa-heart ${Style.footerIcons}`}></i>
       </footer>
     </div>
   );
