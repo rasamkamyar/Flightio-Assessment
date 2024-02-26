@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Style from "./index.module.css";
+import ProductContext from "../../context/ProductContext";
 
 function Products() {
   const [products, setProducts] = useState([]);
   const [temp, setTemp] = useState([]);
   const [cats, setCats] = useState([]);
   const serachRef = useRef(null);
+  const cntxt = useContext(ProductContext);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -97,7 +99,7 @@ function Products() {
           </div>
         );
       })}
-
+      {cntxt}
       <footer className={Style.footer}>
         <i
           className="fa fa-home"

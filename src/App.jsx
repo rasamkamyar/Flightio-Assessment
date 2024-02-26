@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Style from "./App.module.css";
 import Products from "./components/Products";
+import ProductContext from "./context/ProductContext";
 
 function App() {
   const [isStarted, setIsStarted] = useState(true);
@@ -12,7 +13,9 @@ function App() {
       </button>
     </div>
   ) : (
-    <Products />
+    <ProductContext.Provider value={110}>
+      <Products />
+    </ProductContext.Provider>
   );
 }
 
