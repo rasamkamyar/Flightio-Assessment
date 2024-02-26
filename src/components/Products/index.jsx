@@ -4,9 +4,9 @@ import ProductContext from "../../context/ProductContext";
 
 function Products() {
   const serachRef = useRef(null);
-  const { products, setProducts, temp, setTemp, cats, setCats } =
-    useContext(ProductContext);
+  const { products, setProducts, temp, cats } = useContext(ProductContext);
 
+  console.log(products);
   function handleChange() {
     const value = serachRef.current.value;
     const searchedProduct = temp.filter((item) => {

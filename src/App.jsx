@@ -30,7 +30,7 @@ function App() {
     </div>
   ) : (
     <ProductContext.Provider
-      value={(products, setProducts, temp, setTemp, cats, setCats)}
+      value={{ products, setProducts, temp, setTemp, cats, setCats }}
     >
       <Products />
     </ProductContext.Provider>
