@@ -78,6 +78,13 @@ function Products() {
           </div>
         );
       })}
+
+      <footer className={Style.footer}>
+        <i className="fa fa-home" style={{ fontSize: "24px", fontWeight:"1000" }}></i>
+        <i className="fa fa-shopping-cart" style={{ fontSize: "24px" }}></i>
+        <i className="fa fa-archive" style={{ fontSize: "24px" }}></i>
+        <i className="fa fa-heart" style={{ fontSize: "24px" }}></i>
+      </footer>
     </div>
   );
 }
