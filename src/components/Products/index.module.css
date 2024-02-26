@@ -31,6 +31,7 @@
 
 .filterBox {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   width: 90%;
   margin: 15px auto;
@@ -38,10 +39,20 @@
 }
 
 .filterBtns {
-  padding: 10px;
-  width: 25%;
-  font-size: 10px;
-  font-weight: 700;
+  color: gray;
+  padding: 10px 0;
+  width: 22%;
+  font-size: 8px;
+  font-weight: 900;
   border-radius: 5px;
   border: 1px solid grey;
+}
+
+.productsContainer {
+  display: flex;
+  border: 1px solid grey;
+  gap: 15px;
+  height: 150px;
+  width: 90%;
+  margin: 15px auto;
 }

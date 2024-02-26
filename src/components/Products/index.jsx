@@ -1,6 +1,23 @@
+import { useEffect } from "react";
 import Style from "./index.module.css";
+import { json } from "react-router-dom";
+import { useState } from "react";
 
 function Products() {
+  const [products, setProducts] = useState([]);
+  const [cats, setCats] = useState([]);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((json) => setProducts(json));
+
+    fetch("https://fakestoreapi.com/products/categories")
+      .then((res) => res.json())
+      .then((json) => setCats(json));
+  }, []);
+
+  // console.log(products);
   return (
     <div>
       <header className={Style.header}>
@@ -25,10 +42,42 @@ function Products() {
         </button>
       </div>
       <div className={Style.filterBox}>
-        <button className={Style.filterBtns}>MEN</button>
-        <button className={Style.filterBtns}>WOMEN</button>
-        <button className={Style.filterBtns}>JEWELRY</button>
+        {cats.map((cat) => {
+          return <button className={Style.filterBtns}>{cat}</button>;
+        })}
       </div>
+
+      {products.map((product) => {
+        return (
+          <div className={Style.productsContainer}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                width: "30%",
+                paddingLeft: "8px",
+              }}
+            >
+              <img
+                src={product.image}
+                alt={product.title}
+                width="100%"
+                height="100"
+              />
+            </div>
+            <div style={{ width: "70%" }}>
+              <h1 style={{ fontSize: "15px", fontWeight: "800" }}>
+                {product.title}
+              </h1>
+              <h2 style={{ fontSize: "12px", color: "grey" }}>
+                {product.category}
+              </h2>
+              <p>{product.price} $</p>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
