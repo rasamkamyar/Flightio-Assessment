@@ -17,11 +17,9 @@ function Products() {
 
   function handleFilter(e) {
     const selectedFilter = e.target.textContent;
-    console.log(selectedFilter);
     let filteredItems = temp.filter(
       (product) => product.category === selectedFilter
     );
-    console.log(filteredItems);
     setProducts(filteredItems);
     filteredItems = [];
   }
