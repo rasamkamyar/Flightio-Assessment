@@ -1,26 +1,11 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import Style from "./index.module.css";
 import ProductContext from "../../context/ProductContext";
 
 function Products() {
-  const [products, setProducts] = useState([]);
-  const [temp, setTemp] = useState([]);
-  const [cats, setCats] = useState([]);
   const serachRef = useRef(null);
-  const cntxt = useContext(ProductContext);
-
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => {
-        setProducts(json);
-        setTemp(json);
-      });
-
-    fetch("https://fakestoreapi.com/products/categories")
-      .then((res) => res.json())
-      .then((json) => setCats(json));
-  }, []);
+  const { products, setProducts, temp, setTemp, cats, setCats } =
+    useContext(ProductContext);
 
   function handleChange() {
     const value = serachRef.current.value;
@@ -99,7 +84,6 @@ function Products() {
           </div>
         );
       })}
-      {cntxt}
       <footer className={Style.footer}>
         <i
           className="fa fa-home"
