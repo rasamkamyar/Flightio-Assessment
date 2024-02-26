@@ -1,23 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Style from "./index.module.css";
-import { json } from "react-router-dom";
-import { useState } from "react";
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const [temp, setTemp] = useState([]);
   const [cats, setCats] = useState([]);
+  const serachRef = useRef(null);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
-      .then((json) => setProducts(json));
+      .then((json) => {
+        setProducts(json);
+        setTemp(json);
+      });
 
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((json) => setCats(json));
   }, []);
 
-  // console.log(products);
+  function handleChange() {
+    const value = serachRef.current.value;
+    const searchedProduct = temp.filter((item) => {
+      return item.title.toLowerCase().includes(value.toLowerCase());
+    });
+    setProducts(searchedProduct);
+  }
+
   return (
     <div>
       <header className={Style.header}>
@@ -33,7 +43,12 @@ function Products() {
         </h1>
       </div>
       <div className={Style.serach}>
-        <input type="text" style={{ width: "80%" }} />
+        <input
+          type="text"
+          style={{ width: "80%" }}
+          ref={serachRef}
+          onChange={handleChange}
+        />
         <button style={{ backgroundColor: "purple", border: "none" }}>
           <i
             className="fa fa-search"
@@ -43,13 +58,17 @@ function Products() {
       </div>
       <div className={Style.filterBox}>
         {cats.map((cat) => {
-          return <button className={Style.filterBtns}>{cat}</button>;
+          return (
+            <button key={cat} className={Style.filterBtns}>
+              {cat}
+            </button>
+          );
         })}
       </div>
 
       {products.map((product) => {
         return (
-          <div className={Style.productsContainer}>
+          <div key={product.id} className={Style.productsContainer}>
             <div
               style={{
                 display: "flex",
@@ -80,10 +99,22 @@ function Products() {
       })}
 
       <footer className={Style.footer}>
-        <i className="fa fa-home" style={{ fontSize: "24px", fontWeight:"1000" }}></i>
-        <i className="fa fa-shopping-cart" style={{ fontSize: "24px" }}></i>
-        <i className="fa fa-archive" style={{ fontSize: "24px" }}></i>
-        <i className="fa fa-heart" style={{ fontSize: "24px" }}></i>
+        <i
+          className="fa fa-home"
+          style={{ fontSize: "24px", fontWeight: "1000" }}
+        ></i>
+        <i
+          className="fa fa-shopping-cart"
+          style={{ fontSize: "24px", color: "grey" }}
+        ></i>
+        <i
+          className="fa fa-archive"
+          style={{ fontSize: "24px", color: "grey" }}
+        ></i>
+        <i
+          className="fa fa-heart"
+          style={{ fontSize: "24px", color: "grey" }}
+        ></i>
       </footer>
     </div>
   );
