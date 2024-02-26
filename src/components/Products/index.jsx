@@ -5,6 +5,7 @@ import ProductContext from "../../context/ProductContext";
 function Products() {
   const serachRef = useRef(null);
   const { products, setProducts, temp, cats } = useContext(ProductContext);
+  const filterRef = useRef(null);
 
   function handleChange() {
     const value = serachRef.current.value;
@@ -12,6 +13,17 @@ function Products() {
       return item.title.toLowerCase().includes(value.toLowerCase());
     });
     setProducts(searchedProduct);
+  }
+
+  function handleFilter(e) {
+    const selectedFilter = e.target.textContent;
+    console.log(selectedFilter);
+    let filteredItems = temp.filter(
+      (product) => product.category === selectedFilter
+    );
+    console.log(filteredItems);
+    setProducts(filteredItems);
+    filteredItems = [];
   }
 
   return (
@@ -42,7 +54,11 @@ function Products() {
       <div className={Style.filterBox}>
         {cats.map((cat) => {
           return (
-            <button key={cat} className={Style.filterBtns}>
+            <button
+              onClick={(e) => handleFilter(e)}
+              key={cat}
+              className={Style.filterBtns}
+            >
               {cat}
             </button>
           );
