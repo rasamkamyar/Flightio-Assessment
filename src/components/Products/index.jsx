@@ -33,14 +33,14 @@ function Products() {
         <h2 style={{ color: "grey", margin: "0", fontSize: "15px" }}>
           Welcome, Flightio
         </h2>
-        <h1 style={{ margin: "10px 0", fontSize: "25px" }}>
+        <h1 style={{ margin: "15px 0", fontSize: "25px" }}>
           Bring Designer Lamps This Diwali
         </h1>
       </div>
       <div className={Style.serach}>
         <input
           type="text"
-          style={{ width: "80%" }}
+          style={{ width: "78%" }}
           ref={serachRef}
           onChange={handleSearch}
         />

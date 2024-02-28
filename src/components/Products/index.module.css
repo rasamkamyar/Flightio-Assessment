@@ -1,6 +1,6 @@
 .imageProfile {
   border-radius: 50%;
-  background-image: url("266.jpg");
+  background-image: url("profile.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   width: 70px;
@@ -19,12 +19,13 @@
   display: flex;
   flex-direction: column;
   width: 90%;
-  margin: auto;
+  margin: 3px auto;
 }
 
 .serach {
   display: flex;
-  max-width: 90%;
+  justify-content: center;
+  width: 90%;
   margin: auto;
   gap: 10px;
 }
