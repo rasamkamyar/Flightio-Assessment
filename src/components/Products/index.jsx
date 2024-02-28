@@ -7,7 +7,7 @@ function Products() {
   const { products, setProducts, temp, cats } = useContext(ProductContext);
   const filterRef = useRef(null);
 
-  function handleChange() {
+  function handleSearch() {
     const value = serachRef.current.value;
     const searchedProduct = temp.filter((item) => {
       return item.title.toLowerCase().includes(value.toLowerCase());
@@ -43,7 +43,7 @@ function Products() {
           type="text"
           style={{ width: "80%" }}
           ref={serachRef}
-          onChange={handleChange}
+          onChange={handleSearch}
         />
         <button style={{ backgroundColor: "purple", border: "none" }}>
           <i className={`fa fa-search  ${Style.searchIcon}`}></i>

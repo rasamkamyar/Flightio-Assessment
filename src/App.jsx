@@ -24,9 +24,9 @@ function App() {
 
   return isStarted ? (
     <div className={Style.container}>
-      <button className={Style.startBtn} onClick={() => setIsStarted(false)}>
+      {/* <button className={Style.startBtn} onClick={() => setIsStarted(false)}>
         Get Started
-      </button>
+      </button> */}
     </div>
   ) : (
     <ProductContext.Provider
