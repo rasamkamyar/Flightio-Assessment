@@ -1,13 +1,21 @@
 import { useContext, useEffect, useState } from "react";
-import Style from "./App.module.css";
 import Products from "./components/Products";
 import ProductContext from "./context/ProductContext";
+import StartPage from "./components/StartPage";
 
 function App() {
-  const [isStarted, setIsStarted] = useState(true);
+  const [isFirstStart, setIsFirstStart] = useState(
+    localStorage.getItem("isFirstStart") || "true"
+  );
+
   const [products, setProducts] = useState([]);
   const [temp, setTemp] = useState([]);
   const [cats, setCats] = useState([]);
+
+  function isFirstStartSetter() {
+    localStorage.setItem("isFirstStart", "false");
+    setIsFirstStart(localStorage.getItem("isFirstStart"));
+  }
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -22,12 +30,8 @@ function App() {
       .then((json) => setCats(json));
   }, []);
 
-  return isStarted ? (
-    <div className={Style.container}>
-      <button className={Style.startBtn} onClick={() => setIsStarted(false)}>
-        Get Started
-      </button>
-    </div>
+  return isFirstStart === "true" ? (
+    <StartPage onClick={isFirstStartSetter} />
   ) : (
     <ProductContext.Provider
       value={{ products, setProducts, temp, setTemp, cats, setCats }}
