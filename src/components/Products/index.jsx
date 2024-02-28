@@ -3,9 +3,8 @@ import Style from "./index.module.css";
 import ProductContext from "../../context/ProductContext";
 
 function Products() {
-  const serachRef = useRef(null);
   const { products, setProducts, temp, cats } = useContext(ProductContext);
-  const filterRef = useRef(null);
+  const serachRef = useRef(null);
 
   function handleSearch() {
     const value = serachRef.current.value;
