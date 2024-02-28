@@ -20,7 +20,6 @@ function Products() {
       (product) => product.category === selectedFilter
     );
     setProducts(filteredItems);
-    filteredItems = [];
   }
 
   return (
