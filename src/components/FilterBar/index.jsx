@@ -2,20 +2,23 @@ import { useContext } from "react";
 import ProductContext from "../../context/ProductContext";
 import Style from "./index.module.css";
 
-
 function FilterBar() {
-  const { products, setProducts, temp, cats } = useContext(ProductContext);
+  const { setProducts, temp, cats } = useContext(ProductContext);
   function handleFilter(e) {
-    let filteredItems = temp.filter((item) => {
-      return item.category === e.target.value;
-    });
-    setProducts(filteredItems);
+    if (e.target.value === "ALL") {
+      setProducts([...temp]);
+    } else {
+      let filteredItems = temp.filter((item) => {
+        return item.category === e.target.value;
+      });
+      setProducts(filteredItems);
+    }
   }
 
   return (
     <>
       <div className={Style.filterBox}>
-        <button onClick={handleFilter} className={Style.filterBtns}>
+        <button onClick={handleFilter} value="ALL" className={Style.filterBtns}>
           ALL
         </button>
         {cats.map((cat) => {
