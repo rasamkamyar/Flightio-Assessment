@@ -15,10 +15,9 @@ function Products() {
   }
 
   function handleFilter(e) {
-    const selectedFilter = e.target.textContent;
-    let filteredItems = temp.filter(
-      (product) => product.category === selectedFilter
-    );
+    let filteredItems = temp.filter((item) => {
+      return item.category === e.target?.value;
+    });
     setProducts(filteredItems);
   }
 
@@ -48,10 +47,12 @@ function Products() {
         </button>
       </div>
       <div className={Style.filterBox}>
+        <button className={Style.filterBtns}>ALL</button>
         {cats.map((cat) => {
           return (
             <button
-              onClick={(e) => handleFilter(e)}
+              value={cat}
+              onClick={handleFilter}
               key={cat}
               className={Style.filterBtns}
             >
