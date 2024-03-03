@@ -1,0 +1,13 @@
+.search {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  gap: 5px;
+}
+
+.searchIcon {
+  font-size: 30px;
+  padding: 5px;
+  color: white;
+}
