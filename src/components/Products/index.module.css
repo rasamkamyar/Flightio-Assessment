@@ -1,10 +1,9 @@
-
-.serach {
+.search {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   width: 90%;
   margin: auto;
-  gap: 10px;
+  gap: 5px;
 }
 
 .filterBox {

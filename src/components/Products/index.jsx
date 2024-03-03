@@ -26,10 +26,10 @@ function Products() {
   return (
     <div>
       <Header />
-      <div className={Style.serach}>
+      <div className={Style.search}>
         <input
           type="text"
-          style={{ width: "78%" }}
+          style={{ width: "100%" }}
           ref={serachRef}
           onChange={handleSearch}
         />
@@ -38,11 +38,7 @@ function Products() {
         </button>
       </div>
       <div className={Style.filterBox}>
-        <button
-          onClick={handleFilter}
-          // value={cat}
-          className={Style.filterBtns}
-        >
+        <button onClick={handleFilter} className={Style.filterBtns}>
           ALL
         </button>
         {cats.map((cat) => {

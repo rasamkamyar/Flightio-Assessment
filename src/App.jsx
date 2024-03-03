@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Products from "./components/Products";
 import ProductContext from "./context/ProductContext";
 import StartPage from "./components/StartPage";
