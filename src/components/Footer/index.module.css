@@ -1,0 +1,20 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: sticky;
+  background-color: white;
+  bottom: 0;
+  left: 0;
+  padding: 25px 0;
+  fill: rgba(0, 0, 0, 0.306);
+  width: 100%;
+}
+
+svg {
+  width: 23px;
+}
+
+.currentPage {
+  fill: black;
+}

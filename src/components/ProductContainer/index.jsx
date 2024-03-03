@@ -1,11 +1,10 @@
 import { useContext } from "react";
 import ProductContext from "../../context/ProductContext";
 import Style from "./index.module.css";
-
-
+import FavoritePage from "../FavoritePage";
 
 function ProductContainer() {
-  const { products } = useContext(ProductContext);
+  const { products, temp } = useContext(ProductContext);
 
   return (
     <>
@@ -21,13 +20,16 @@ function ProductContainer() {
               />
             </div>
             <div style={{ width: "70%" }}>
-              <h1 style={{ fontSize: "15px", fontWeight: "800" }}>
+              <h1 style={{ fontSize: "14px", fontWeight: "800" }}>
                 {product.title}
               </h1>
               <h2 style={{ fontSize: "12px", color: "grey" }}>
                 {product.category}
               </h2>
-              <p>{product.price} $</p>
+              <div className={Style.priceContainer}>
+                <p>Price: {product.price} $</p>
+                <FavoritePage />
+              </div>
             </div>
           </div>
         );

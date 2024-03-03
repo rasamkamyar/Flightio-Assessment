@@ -1,6 +1,7 @@
 import Style from "./index.module.css";
 import FilterBar from "../FilterBar";
 import SearchBar from "../SearchBar";
+import Footer from "../Footer";
 import Header from "../Header";
 import ProductContainer from "../ProductContainer";
 
@@ -11,12 +12,7 @@ function Products() {
       <SearchBar />
       <FilterBar />
       <ProductContainer />
-      <footer className={Style.footer}>
-        <i className={`fa fa-home ${Style.footerIcons}`}></i>
-        <i className={`fa fa-shopping-cart ${Style.footerIcons}`}></i>
-        <i className={`fa fa-archive ${Style.footerIcons}`}></i>
-        <i className={`fa fa-heart ${Style.footerIcons}`}></i>
-      </footer>
+      <Footer />
     </div>
   );
 }
