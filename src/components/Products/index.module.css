@@ -1,19 +1,4 @@
-.imgContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  padding-left: 8px;
-}
-.productsContainer {
-  display: flex;
-  border: 1px solid grey;
-  gap: 15px;
-  height: 150px;
-  width: 90%;
-  margin: 15px auto;
-  overflow: scroll;
-}
+
 
 .footer {
   display: flex;
