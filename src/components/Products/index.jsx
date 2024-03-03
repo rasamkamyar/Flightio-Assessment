@@ -1,6 +1,7 @@
 import { useContext, useRef } from "react";
 import Style from "./index.module.css";
 import ProductContext from "../../context/ProductContext";
+import Header from "../Header";
 
 function Products() {
   const { products, setProducts, temp, cats } = useContext(ProductContext);
@@ -15,6 +16,7 @@ function Products() {
   }
 
   function handleFilter(e) {
+    console.log(e.target.value);
     let filteredItems = temp.filter((item) => {
       return item.category === e.target?.value;
     });
@@ -23,18 +25,7 @@ function Products() {
 
   return (
     <div>
-      <header className={Style.header}>
-        <i className="fa fa-bars" style={{ fontSize: "44px" }}></i>
-        <div className={Style.imageProfile}></div>
-      </header>
-      <div className={Style.title}>
-        <h2 style={{ color: "grey", margin: "0", fontSize: "15px" }}>
-          Welcome, Flightio
-        </h2>
-        <h1 style={{ margin: "15px 0", fontSize: "25px" }}>
-          Bring Designer Lamps This Diwali
-        </h1>
-      </div>
+      <Header />
       <div className={Style.serach}>
         <input
           type="text"
@@ -47,7 +38,13 @@ function Products() {
         </button>
       </div>
       <div className={Style.filterBox}>
-        <button className={Style.filterBtns}>ALL</button>
+        <button
+          onClick={handleFilter}
+          // value={cat}
+          className={Style.filterBtns}
+        >
+          ALL
+        </button>
         {cats.map((cat) => {
           return (
             <button
