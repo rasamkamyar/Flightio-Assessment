@@ -1,10 +1,11 @@
 import { useContext, useRef } from "react";
 import Style from "./index.module.css";
 import ProductContext from "../../context/ProductContext";
+import FilterBar from "../FilterBar";
 import Header from "../Header";
 
 function Products() {
-  const { products, setProducts, temp, cats } = useContext(ProductContext);
+  const { products, setProducts, temp } = useContext(ProductContext);
   const serachRef = useRef(null);
 
   function handleSearch() {
@@ -13,14 +14,6 @@ function Products() {
       return item.title.toLowerCase().includes(value.toLowerCase());
     });
     setProducts(searchedProduct);
-  }
-
-  function handleFilter(e) {
-    console.log(e.target.value);
-    let filteredItems = temp.filter((item) => {
-      return item.category === e.target?.value;
-    });
-    setProducts(filteredItems);
   }
 
   return (
@@ -37,23 +30,8 @@ function Products() {
           <i className={`fa fa-search  ${Style.searchIcon}`}></i>
         </button>
       </div>
-      <div className={Style.filterBox}>
-        <button onClick={handleFilter} className={Style.filterBtns}>
-          ALL
-        </button>
-        {cats.map((cat) => {
-          return (
-            <button
-              value={cat}
-              onClick={handleFilter}
-              key={cat}
-              className={Style.filterBtns}
-            >
-              {cat}
-            </button>
-          );
-        })}
-      </div>
+
+      <FilterBar />
 
       {products.map((product) => {
         return (

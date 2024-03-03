@@ -1,0 +1,22 @@
+
+.filterBox {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 90%;
+    gap: 10px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  .filterBtns {
+    color: gray;
+    padding: 10px 0;
+    width: 30%;
+    font-size: 8px;
+    font-weight: 900;
+    border-radius: 5px;
+    border: 1px solid grey;
+  }
+  
