@@ -1,21 +1,23 @@
-import { useContext, useState } from "react";
+import { useContext, useReducer, useState } from "react";
 import Style from "./index.module.css";
-import ProductContext from "../../context/ProductContext";
 import FavoritePage from "../FavoritePage";
 import FavoriteContext from "../../context/FavoriteContext";
 
 function Product({ product }) {
-  // console.log(product);
-  const { products, temp } = useContext(ProductContext);
-  const { favorites, setFavorites } = useContext(FavoriteContext);
-
+  const { favorites, dispatch } = useContext(FavoriteContext);
   const isFavorite = favorites.find((item) => item.id === product.id);
 
   function handleFavoriteFn() {
     if (isFavorite) {
-      setFavorites(favorites.filter((item) => item.id !== product.id));
+      dispatch({
+        type: "REMOVE_ITEM",
+        payload: product,
+      });
     } else {
-      setFavorites([...favorites, product]);
+      dispatch({
+        type: "ADD_ITEM",
+        payload: product,
+      });
     }
   }
 

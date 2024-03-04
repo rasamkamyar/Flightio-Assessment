@@ -5,16 +5,18 @@ import Footer from "../Footer";
 import Header from "../Header";
 import ProductContainer from "../ProductContainer";
 import FavoriteContext from "../../context/FavoriteContext";
-import { useState } from "react";
+import { useReducer, useState } from "react";
+import FavoriteReducer from "../../reducers/FavoriteReducer";
 
 function HomePage() {
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, dispatch] = useReducer(FavoriteReducer, []);
+
   return (
     <div>
       <Header />
       <SearchBar />
       <FilterBar />
-      <FavoriteContext.Provider value={{ favorites, setFavorites }}>
+      <FavoriteContext.Provider value={{ favorites, dispatch }}>
         <ProductContainer />
         <Footer />
       </FavoriteContext.Provider>
