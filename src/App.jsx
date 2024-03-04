@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Products from "./components/Products";
+import HomePage from "./components/HomePage";
 import ProductContext from "./context/ProductContext";
 import StartPage from "./components/StartPage";
 import useFetch from "./hooks/useFetch";
@@ -32,7 +32,7 @@ function App() {
     <ProductContext.Provider
       value={{ products, setProducts, temp, setTemp, cats, setCats }}
     >
-      <Products />
+      <HomePage />
     </ProductContext.Provider>
   );
 }

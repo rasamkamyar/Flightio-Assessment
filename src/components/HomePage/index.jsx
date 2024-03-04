@@ -4,8 +4,10 @@ import SearchBar from "../SearchBar";
 import Footer from "../Footer";
 import Header from "../Header";
 import ProductContainer from "../ProductContainer";
+import FavoriteContext from "../../context/FavoriteContext";
+import { useState } from "react";
 
-function Products() {
+function HomePage() {
   return (
     <div>
       <Header />
@@ -17,4 +19,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default HomePage;
