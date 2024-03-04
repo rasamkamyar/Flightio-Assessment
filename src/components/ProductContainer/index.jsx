@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ProductContext from "../../context/ProductContext";
 import Style from "./index.module.css";
 import FavoritePage from "../FavoritePage";
+import FavoriteContext from "../../context/FavoriteContext";
 
 function ProductContainer() {
   const { products, temp } = useContext(ProductContext);
+  
 
+
+  
   return (
     <>
       {products.map((product) => {
