@@ -2,6 +2,7 @@ import { useContext, useReducer, useState } from "react";
 import Style from "./index.module.css";
 import FavoritePage from "../FavoritePage";
 import FavoriteContext from "../../context/FavoriteContext";
+import { Link } from "react-router-dom";
 
 function Product({ product }) {
   const { favorites, dispatch } = useContext(FavoriteContext);
@@ -22,7 +23,7 @@ function Product({ product }) {
   }
 
   return (
-    <div className={Style.product}>
+    <Link className={Style.product}>
       <div className={Style.imgContainer}>
         <img
           src={product.image}
@@ -31,7 +32,7 @@ function Product({ product }) {
           height="100"
         />
       </div>
-      <div style={{ width: "70%" }}>
+      <div className={Style.desc}>
         <h1 style={{ fontSize: "14px", fontWeight: "800" }}>{product.title}</h1>
         <h2 style={{ fontSize: "12px", color: "grey" }}>{product.category}</h2>
         <div className={Style.priceContainer}>
@@ -42,7 +43,7 @@ function Product({ product }) {
           />
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

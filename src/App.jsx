@@ -3,6 +3,8 @@ import HomePage from "./components/HomePage";
 import ProductContext from "./context/ProductContext";
 import StartPage from "./components/StartPage";
 import useFetch from "./hooks/useFetch";
+import { Route, Routes } from "react-router-dom";
+import ProductDetail from "./components/ProductDetail";
 
 function App() {
   const [isFirstStart, setIsFirstStart] = useState(
@@ -32,7 +34,10 @@ function App() {
     <ProductContext.Provider
       value={{ products, setProducts, temp, setTemp, cats, setCats }}
     >
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
+      </Routes>
     </ProductContext.Provider>
   );
 }
