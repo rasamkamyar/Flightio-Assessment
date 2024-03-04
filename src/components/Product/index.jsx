@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Style from "./index.module.css";
 import ProductContext from "../../context/ProductContext";
 import FavoritePage from "../FavoritePage";
 
 function Product({ product }) {
   const { products, temp } = useContext(ProductContext);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <div className={Style.product}>
@@ -21,7 +22,10 @@ function Product({ product }) {
         <h2 style={{ fontSize: "12px", color: "grey" }}>{product.category}</h2>
         <div className={Style.priceContainer}>
           <p>Price: {product.price} $</p>
-          <FavoritePage />
+          <FavoritePage
+            onClick={() => setIsFavorite(true)}
+            fill={isFavorite ? "red" : "currentColor"}
+          />
         </div>
       </div>
     </div>

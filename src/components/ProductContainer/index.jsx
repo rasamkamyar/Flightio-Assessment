@@ -10,7 +10,7 @@ function ProductContainer() {
 
   return (
     <>
-      <div  className={Style.product}>
+      <div className={Style.productContainer}>
         {products.map((product) => {
           return <Product key={product.id} product={product} />;
         })}
