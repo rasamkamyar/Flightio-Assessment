@@ -5,7 +5,7 @@ import Footer from "../Footer";
 import Header from "../Header";
 import ProductContainer from "../ProductContainer";
 import FavoriteContext from "../../context/FavoriteContext";
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import FavoriteReducer from "../../reducers/FavoriteReducer";
 
 function HomePage() {
