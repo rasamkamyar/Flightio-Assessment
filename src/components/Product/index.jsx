@@ -2,10 +2,22 @@ import { useContext, useState } from "react";
 import Style from "./index.module.css";
 import ProductContext from "../../context/ProductContext";
 import FavoritePage from "../FavoritePage";
+import FavoriteContext from "../../context/FavoriteContext";
 
 function Product({ product }) {
+  // console.log(product);
   const { products, temp } = useContext(ProductContext);
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { favorites, setFavorites } = useContext(FavoriteContext);
+
+  const isFavorite = favorites.find((item) => item.id === product.id);
+
+  function handleFavoriteFn() {
+    if (isFavorite) {
+      setFavorites(favorites.filter((item) => item.id !== product.id));
+    } else {
+      setFavorites([...favorites, product]);
+    }
+  }
 
   return (
     <div className={Style.product}>
@@ -23,7 +35,7 @@ function Product({ product }) {
         <div className={Style.priceContainer}>
           <p>Price: {product.price} $</p>
           <FavoritePage
-            onClick={() => setIsFavorite(true)}
+            onClick={handleFavoriteFn}
             fill={isFavorite ? "red" : "currentColor"}
           />
         </div>

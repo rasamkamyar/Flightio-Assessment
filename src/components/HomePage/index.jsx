@@ -8,13 +8,16 @@ import FavoriteContext from "../../context/FavoriteContext";
 import { useState } from "react";
 
 function HomePage() {
+  const [favorites, setFavorites] = useState([]);
   return (
     <div>
       <Header />
       <SearchBar />
       <FilterBar />
-      <ProductContainer />
-      <Footer />
+      <FavoriteContext.Provider value={{ favorites, setFavorites }}>
+        <ProductContainer />
+        <Footer />
+      </FavoriteContext.Provider>
     </div>
   );
 }
