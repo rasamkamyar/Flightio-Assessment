@@ -4,7 +4,9 @@ function Header() {
   return (
     <header className={Style.header}>
       <div className={Style.top}>
-        <i className="fa fa-bars" style={{ fontSize: "35px" }}></i>
+        <div>
+          <i className="fa fa-bars" style={{ fontSize: "35px" }}></i>
+        </div>
         <div className={Style.imageProfile}></div>
       </div>
     </header>
