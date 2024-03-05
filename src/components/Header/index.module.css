@@ -7,9 +7,6 @@
   height: 70px;
 }
 
-.dark {
-  background-color: black;
-}
 .top {
   display: flex;
   justify-content: space-between;

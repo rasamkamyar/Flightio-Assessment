@@ -1,4 +1,5 @@
 import Style from "./index.module.css";
+// import image from "./public/"
 
 function Header() {
   return (
