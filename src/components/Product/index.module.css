@@ -9,13 +9,18 @@
   display: flex;
   border-radius: 10px;
   border: 2px solid grey;
-  gap: 20px;
-  padding: 5px 0;
-  height: 150px;
+  gap: 15px;
+  height: 170px;
+  justify-content: center;
+  align-items: center;
   width: 90%;
   margin: 10px auto;
 }
 
+
+.product:last-child{
+  margin-bottom: 10px;
+}
 .priceContainer {
   display: flex;
   align-items: center;

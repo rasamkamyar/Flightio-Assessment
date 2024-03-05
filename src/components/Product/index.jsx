@@ -37,8 +37,8 @@ function Product({ product }) {
         />
       </div>
       <div className={Style.desc}>
-        <h1 style={{ fontSize: "14px", fontWeight: "900" }}>{product.title}</h1>
-        <h2 style={{ fontSize: "12px", color: "grey" }}>{product.category}</h2>
+        <h1 style={{ fontSize: "11px", fontWeight: "900" }}>{product.title}</h1>
+        <h2 style={{ fontSize: "10px", color: "grey" }}>{product.category}</h2>
         <div className={Style.priceContainer}>
           <p>Price: {product.price} $</p>
           <FavoritePage

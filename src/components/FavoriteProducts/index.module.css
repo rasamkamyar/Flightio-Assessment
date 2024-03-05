@@ -6,15 +6,22 @@
   margin-top: 70px;
 }
 
-.title{
-    display: flex;
-    justify-content: center;
-    margin: 50px auto;
-    width: 70%;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: grey;
-    color: white;
-    font-size: 20px;
+.title {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+  width: 70%;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: grey;
+  color: white;
+  font-size: 20px;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 90px;
+}

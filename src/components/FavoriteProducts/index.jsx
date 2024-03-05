@@ -8,14 +8,15 @@ function FavoriteProducts() {
   return (
     <>
       <h1 className={Style.title}>Favorite Products</h1>
-
-      {favorites.length > 0 ? (
-        favorites.map((item) => {
-          return <Product key={item} product={item} />;
-        })
-      ) : (
-        <h2 className={Style.EmptyPageText}>There is no favorite item .</h2>
-      )}
+      <div className={Style.container}>
+        {favorites.length > 0 ? (
+          favorites.map((item) => {
+            return <Product key={item} product={item} />;
+          })
+        ) : (
+          <h2 className={Style.EmptyPageText}>There is no favorite item .</h2>
+        )}
+      </div>
     </>
   );
 }
