@@ -44,6 +44,7 @@ function Product({ product }) {
           <FavoritePage
             onClick={handleFavoriteFn}
             fill={isFavorite ? "red" : "currentColor"}
+            className={location.pathname === "/favorite" ? "currentColor" : ""}
           />
         </div>
       </div>
