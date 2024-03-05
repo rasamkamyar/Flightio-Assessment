@@ -2,6 +2,7 @@ import { useContext } from "react";
 import FavoriteContext from "../../context/FavoriteContext";
 import Product from "../Product";
 import Style from "./index.module.css";
+import Layout from "../Layout";
 
 function FavoriteProducts() {
   const { favorites, dispatch } = useContext(FavoriteContext);
