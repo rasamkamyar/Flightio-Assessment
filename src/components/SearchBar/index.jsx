@@ -23,7 +23,9 @@ function SearchBar() {
         onChange={handleSearch}
       />
       <button style={{ backgroundColor: "purple", border: "none" }}>
-        <i className={`fa fa-search  ${Style.searchIcon}`}></i>
+        <i
+          className={`fa fa-search  ${Style.searchIcon}`}
+        ></i>
       </button>
     </div>
   );
