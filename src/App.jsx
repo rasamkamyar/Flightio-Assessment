@@ -8,6 +8,7 @@ import ProductDetail from "./components/ProductDetail";
 import FavoriteProducts from "./components/FavoriteProducts";
 import FavoriteContext from "./context/FavoriteContext";
 import FavoriteReducer from "./reducers/FavoriteReducer";
+import Layout from "./components/Layout";
 
 FavoriteReducer;
 function App() {
@@ -41,11 +42,13 @@ function App() {
     >
       <FavoriteContext.Provider value={{ favorites, dispatch }}>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/favorite" element={<FavoriteProducts />} />
-          </Routes>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/favorite" element={<FavoriteProducts />} />
+            </Routes>
+          </Layout>
         </BrowserRouter>
       </FavoriteContext.Provider>
     </ProductContext.Provider>

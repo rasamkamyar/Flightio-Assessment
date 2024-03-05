@@ -1,17 +1,21 @@
 import { useContext } from "react";
 import FavoriteContext from "../../context/FavoriteContext";
 import Product from "../Product";
+import Style from "./index.module.css";
 
 function FavoriteProducts() {
   const { favorites, dispatch } = useContext(FavoriteContext);
-  console.log(favorites);
-
   return (
     <>
-      <h1>hiii</h1>
-      {favorites.map((item) => {
-        return <Product key={item} product={item}/>;
-      })}
+      <h1 className={Style.title}>Favorite Products</h1>
+
+      {favorites.length > 0 ? (
+        favorites.map((item) => {
+          return <Product key={item} product={item} />;
+        })
+      ) : (
+        <h2 className={Style.EmptyPageText}>There is no favorite item .</h2>
+      )}
     </>
   );
 }

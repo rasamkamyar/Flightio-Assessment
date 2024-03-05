@@ -1,0 +1,20 @@
+.EmptyPageText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+  margin-top: 70px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+    width: 70%;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: grey;
+    color: white;
+    font-size: 20px;
+}
+
