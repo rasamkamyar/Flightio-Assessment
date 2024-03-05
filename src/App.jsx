@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 import HomePage from "./components/HomePage";
 import ProductContext from "./context/ProductContext";
 import StartPage from "./components/StartPage";
@@ -6,12 +6,16 @@ import useFetch from "./hooks/useFetch";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ProductDetail from "./components/ProductDetail";
 import FavoriteProducts from "./components/FavoriteProducts";
+import FavoriteContext from "./context/FavoriteContext";
+import FavoriteReducer from "./reducers/FavoriteReducer";
 
+FavoriteReducer;
 function App() {
   const [isFirstStart, setIsFirstStart] = useState(
     localStorage.getItem("isFirstStart") || "true"
   );
   const [products, setProducts] = useState([]);
+  const [favorites, dispatch] = useReducer(FavoriteReducer, []);
   const [temp, setTemp] = useState([]);
   const [cats, setCats] = useState([]);
   const product = useFetch("https://fakestoreapi.com/products");
@@ -35,13 +39,15 @@ function App() {
     <ProductContext.Provider
       value={{ products, setProducts, temp, setTemp, cats, setCats }}
     >
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-          <Route path="/favorite" element={<FavoriteProducts />} />
-        </Routes>
-      </BrowserRouter>
+      <FavoriteContext.Provider value={{ favorites, dispatch }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/favorite" element={<FavoriteProducts />} />
+          </Routes>
+        </BrowserRouter>
+      </FavoriteContext.Provider>
     </ProductContext.Provider>
   );
 }
