@@ -1,12 +1,13 @@
-import { useContext, useReducer, useState } from "react";
+import { useContext, useEffect, useReducer, useState } from "react";
 import Style from "./index.module.css";
 import FavoritePage from "../FavoritePage";
 import FavoriteContext from "../../context/FavoriteContext";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Product({ product }) {
   const { favorites, dispatch } = useContext(FavoriteContext);
   const isFavorite = favorites.find((item) => item.id === product.id);
+  const navigate = useNavigate();
 
   function handleFavoriteFn() {
     if (isFavorite) {
@@ -23,7 +24,10 @@ function Product({ product }) {
   }
 
   return (
-    <Link className={Style.product}>
+    <div
+      onClick={() => navigate(`/product/${product.id}`)}
+      className={Style.product}
+    >
       <div className={Style.imgContainer}>
         <img
           src={product.image}
@@ -33,7 +37,7 @@ function Product({ product }) {
         />
       </div>
       <div className={Style.desc}>
-        <h1 style={{ fontSize: "14px", fontWeight: "800" }}>{product.title}</h1>
+        <h1 style={{ fontSize: "14px", fontWeight: "900" }}>{product.title}</h1>
         <h2 style={{ fontSize: "12px", color: "grey" }}>{product.category}</h2>
         <div className={Style.priceContainer}>
           <p>Price: {product.price} $</p>
@@ -43,7 +47,7 @@ function Product({ product }) {
           />
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

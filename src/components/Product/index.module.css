@@ -2,20 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
-  padding-left: 8px;
+  width: 60%;
+  margin-left: 10px;
 }
 .product {
   display: flex;
   border-radius: 10px;
-  border: 1px solid grey;
-  gap: 15px;
+  border: 2px solid grey;
+  gap: 20px;
   padding: 5px 0;
   height: 150px;
   width: 90%;
   margin: 10px auto;
-  text-decoration: none;
-  color: black;
 }
 
 .priceContainer {
