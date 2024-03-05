@@ -1,6 +1,6 @@
 import { useContext, useEffect, useReducer, useState } from "react";
 import Style from "./index.module.css";
-import FavoritePage from "../FavoritePage";
+import FavoritePage from "../FavoriteIcon";
 import FavoriteContext from "../../context/FavoriteContext";
 import { useNavigate } from "react-router-dom";
 

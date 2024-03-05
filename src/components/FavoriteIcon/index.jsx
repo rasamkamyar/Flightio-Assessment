@@ -1,7 +1,7 @@
 import Style from "./index.module.css";
 
 
-function FavoritePage({ label, hasLabel, ...props }) {
+function FavoriteIcon({ label, hasLabel, ...props }) {
   return (
     <div className={Style.lableContainer} onClick={(e) => e.stopPropagation()}>
       {hasLabel && <span className={Style.label}>{label}</span>}
@@ -11,4 +11,4 @@ function FavoritePage({ label, hasLabel, ...props }) {
     </div>
   );
 }
-export default FavoritePage;
+export default FavoriteIcon;

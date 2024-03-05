@@ -5,7 +5,6 @@ import Style from "./index.module.css";
 function ProductDetail() {
   const { id } = useParams();
   const product = useFetch(`https://fakestoreapi.com/products/${id}`);
-  console.log(product);
   return (
     <div className={Style.container}>
       <h1 className={Style.text}>{product.title}</h1>
