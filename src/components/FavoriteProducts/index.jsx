@@ -11,7 +11,7 @@ function FavoriteProducts() {
       <div className={Style.container}>
         {favorites.length > 0 ? (
           favorites.map((item) => {
-            return <Product key={item} product={item} />;
+            return <Product key={item.id} product={item} />;
           })
         ) : (
           <h2 className={Style.EmptyPageText}>There is no favorite item .</h2>

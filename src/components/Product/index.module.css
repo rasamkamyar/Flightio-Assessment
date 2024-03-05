@@ -8,7 +8,7 @@
 .product {
   display: flex;
   border-radius: 10px;
-  border: 2px solid grey;
+  border: 2px solid rgb(98, 96, 96);
   gap: 15px;
   height: 170px;
   justify-content: center;
@@ -17,10 +17,6 @@
   margin: 10px auto;
 }
 
-
-.product:last-child{
-  margin-bottom: 10px;
-}
 .priceContainer {
   display: flex;
   align-items: center;
