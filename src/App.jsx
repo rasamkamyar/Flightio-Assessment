@@ -9,6 +9,8 @@ import FavoriteProducts from "./components/FavoriteProducts";
 import FavoriteContext from "./context/FavoriteContext";
 import FavoriteReducer from "./reducers/FavoriteReducer";
 import Layout from "./components/Layout";
+import About from "./components/About";
+import Contact from "./components/Contact";
 
 FavoriteReducer;
 function App() {
@@ -45,6 +47,8 @@ function App() {
           <Layout>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="/favorite" element={<FavoriteProducts />} />
             </Routes>
