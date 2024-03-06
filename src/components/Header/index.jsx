@@ -14,7 +14,7 @@ function Header() {
             onClick={() => setHideMenu(!hideMenu)}
           ></i>
           <ul className={hideMenu ? Style.menuBar : Style.hide}>
-            <Link to={"/"}>PRODUCTS</Link>
+            <Link to={"/"}>HOME</Link>
             <Link to={"/about"}>ABOUT</Link>
             <Link to={"/contact"}>CONTACT US</Link>
           </ul>
