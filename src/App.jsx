@@ -32,7 +32,6 @@ function App() {
   useEffect(() => {
     setProducts(product);
     setTemp(product);
-
     setCats(category);
   }, [product, category]);
 
